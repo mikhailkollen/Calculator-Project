@@ -1,0 +1,76 @@
+.keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+.keyboard-grid .key-2fr {
+  grid-column: span 2;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: hsl(222deg, 26%, 31%);
+  height: 100vh;
+  width: 100%;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+body main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+}
+body main header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1.1rem;
+}
+body main input {
+  background-color: hsl(224deg, 36%, 15%);
+  width: 100%;
+  text-align: end;
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1.4rem;
+  padding: 15px 0 15px 0;
+  border-radius: 6px;
+  margin: 15px 0 15px 0;
+}
+body main .keyboard-grid {
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 5px;
+  width: 100%;
+  overflow: hidden;
+  background-color: hsl(223deg, 31%, 20%);
+}
+body main .keyboard-grid button {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.2rem;
+  color: hsl(221deg, 14%, 31%);
+  background-color: hsl(30deg, 25%, 89%);
+  box-shadow: 0px 2px hsl(28deg, 16%, 65%);
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 5px 10px 5px;
+}
+body main .keyboard-grid button.key-delete, body main .keyboard-grid button.key-reset {
+  background-color: hsl(225deg, 21%, 49%);
+  box-shadow: 0px 2px hsl(224deg, 28%, 35%);
+  color: hsl(0deg, 0%, 100%);
+}
+body main .keyboard-grid button.key-equal {
+  background-color: hsl(6deg, 63%, 50%);
+  box-shadow: 0px 2px hsl(6deg, 70%, 34%);
+  color: hsl(0deg, 0%, 100%);
+}

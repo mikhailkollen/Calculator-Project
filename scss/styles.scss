@@ -1,0 +1,73 @@
+@import "config";
+@import "keyboard";
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $dark-blue-main-bg;
+  height: 100vh;
+  width: 100%;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  box-sizing: border-box;
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      color: $white;
+      font-size: 1.1rem;
+    }
+    input {
+      background-color: $dark-blue-screen-bg;
+      width: 100%;
+      text-align: end;
+      color: $white;
+      font-size: 1.4rem;
+      padding: 15px 0 15px 0;
+      border-radius: 6px;
+      margin: 15px 0 15px 0;
+    }
+
+    .keyboard-grid {
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 5px;
+      width: 100%;
+      overflow: hidden;
+      background-color: $dark-blue-toggle-key-bg;
+      button {
+        font-family: "League Spartan", sans-serif;
+        font-size: 1.2rem;
+        color: $very-dark-grayish-blue;
+        background-color: $light-grayish-orange;
+        box-shadow: 0px 2px $grayish-orange-shadow;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 5px 10px 5px;
+        
+        &.key-delete,
+        &.key-reset {
+          background-color: $desaturated-dark-blue;
+          box-shadow: 0px 2px $desaturated-dark-blue-shadow;
+          color: $white;
+        }
+        &.key-equal {
+          background-color: $red-background-toggle;
+          box-shadow: 0px 2px $dark-red-shadow;
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,8 @@
   grid-column: span 2;
 }
 
-body {
+body,
+body[data-theme="1"] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +20,8 @@ body {
   font-weight: 700;
   box-sizing: border-box;
 }
-body main {
+body main,
+body[data-theme="1"] main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +29,8 @@ body main {
   width: 50%;
   height: 50%;
 }
-body main header {
+body main header,
+body[data-theme="1"] main header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +38,62 @@ body main header {
   color: hsl(0deg, 0%, 100%);
   font-size: 1.1rem;
 }
-body main input {
+body main header .theme-switch-wrapper,
+body[data-theme="1"] main header .theme-switch-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  position: relative;
+}
+body main header .theme-switch-wrapper #theme-tag,
+body[data-theme="1"] main header .theme-switch-wrapper #theme-tag {
+  margin-right: 10px;
+}
+body main header .range-input-values,
+body[data-theme="1"] main header .range-input-values {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 4px 0 4px;
+}
+body main header .range-input-values p,
+body[data-theme="1"] main header .range-input-values p {
+  display: inline-block;
+}
+body main header input[type="range"],
+body[data-theme="1"] main header input[type="range"] {
+  padding: 0;
+  width: 66px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: hsl(223deg, 31%, 20%);
+  border-radius: 10px;
+  cursor: pointer;
+}
+body main header input[type="range"]::-webkit-slider-runnable-track,
+body[data-theme="1"]
+  main
+  header
+  input[type="range"]::-webkit-slider-runnable-track {
+  background-color: hsl(223deg, 31%, 20%);
+  border-radius: 10px;
+}
+body main header input[type="range"]::-webkit-slider-thumb,
+body[data-theme="1"] main header input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: hsl(6deg, 63%, 50%);
+}
+body main input[type="number"],
+body[data-theme="1"] main input[type="number"] {
   background-color: hsl(224deg, 36%, 15%);
   box-sizing: border-box;
   width: 100%;
@@ -46,7 +104,8 @@ body main input {
   border-radius: 6px;
   margin: 15px 0 15px 0;
 }
-body main .keyboard-grid {
+body main .keyboard-grid,
+body[data-theme="1"] main .keyboard-grid {
   box-sizing: border-box;
   border-radius: 6px;
   padding: 5px;
@@ -54,7 +113,8 @@ body main .keyboard-grid {
   overflow: hidden;
   background-color: hsl(223deg, 31%, 20%);
 }
-body main .keyboard-grid button {
+body main .keyboard-grid button,
+body[data-theme="1"] main .keyboard-grid button {
   font-family: "League Spartan", sans-serif;
   font-size: 1.2rem;
   color: hsl(221deg, 14%, 31%);
@@ -65,13 +125,95 @@ body main .keyboard-grid button {
   border-radius: 4px;
   padding: 10px 5px 10px 5px;
 }
-body main .keyboard-grid button.key-delete, body main .keyboard-grid button.key-reset {
+body main .keyboard-grid button.key-delete,
+body main .keyboard-grid button.key-reset,
+body[data-theme="1"] main .keyboard-grid button.key-delete,
+body[data-theme="1"] main .keyboard-grid button.key-reset {
   background-color: hsl(225deg, 21%, 49%);
   box-shadow: 0px 2px hsl(224deg, 28%, 35%);
   color: hsl(0deg, 0%, 100%);
 }
-body main .keyboard-grid button.key-equal {
+body main .keyboard-grid button.key-equal,
+body[data-theme="1"] main .keyboard-grid button.key-equal {
   background-color: hsl(6deg, 63%, 50%);
   box-shadow: 0px 2px hsl(6deg, 70%, 34%);
   color: hsl(0deg, 0%, 100%);
+}
+
+body[data-theme="2"] {
+  background-color: hsl(0deg, 0%, 90%);
+}
+body[data-theme="2"] header {
+  color: hsl(60deg, 10%, 19%);
+}
+body[data-theme="2"] header input[type="range"] {
+  background-color: hsl(0deg, 5%, 81%);
+}
+body[data-theme="2"] header input[type="range"]::-webkit-slider-runnable-track {
+  background-color: hsl(0deg, 5%, 81%);
+}
+body[data-theme="2"] header input[type="range"]::-webkit-slider-thumb {
+  background: hsl(25deg, 98%, 40%);
+}
+body[data-theme="2"] input[type="number"] {
+  background-color: hsl(0deg, 0%, 93%);
+  color: hsl(60deg, 10%, 19%);
+}
+body[data-theme="2"] .keyboard-grid {
+  background-color: hsl(0deg, 5%, 81%);
+}
+body[data-theme="2"] .keyboard-grid button {
+  color: hsl(60deg, 10%, 19%);
+  background-color: hsl(45deg, 7%, 89%);
+  box-shadow: 0px 2px hsl(35deg, 11%, 61%);
+}
+body[data-theme="2"] .keyboard-grid button.key-delete,
+body[data-theme="2"] .keyboard-grid button.key-reset {
+  background-color: hsl(185deg, 42%, 37%);
+  box-shadow: 0px 2px hsl(185deg, 58%, 25%);
+  color: hsl(0deg, 0%, 100%);
+}
+body[data-theme="2"] .keyboard-grid button.key-equal {
+  background-color: hsl(25deg, 98%, 40%);
+  box-shadow: 0px 2px hsl(25deg, 99%, 27%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+body[data-theme="3"] {
+  background-color: hsl(268deg, 75%, 9%);
+}
+body[data-theme="3"] header {
+  color: hsl(52, 100%, 62%);
+}
+body[data-theme="3"] header input[type="range"] {
+  background-color: hsl(268deg, 71%, 12%);
+}
+body[data-theme="3"] header input[type="range"]::-webkit-slider-runnable-track {
+  background-color: hsl(268deg, 71%, 12%);
+}
+body[data-theme="3"] header input[type="range"]::-webkit-slider-thumb {
+  background: hsl(176, 100%, 44%);
+}
+body[data-theme="3"] input[type="number"] {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+body[data-theme="3"] .keyboard-grid {
+  background-color: hsl(268, 71%, 12%);
+}
+body[data-theme="3"] .keyboard-grid button {
+  color: hsl(52, 100%, 62%);
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0px 2px hsl(290, 70%, 36%);
+}
+body[data-theme="3"] .keyboard-grid button.key-delete,
+body[data-theme="3"] .keyboard-grid button.key-reset {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0px 2px hsl(285, 91%, 52%);
+  color: hsl(0deg, 0%, 100%);
+}
+body[data-theme="3"] .keyboard-grid button.key-equal {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0px 2px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
 }

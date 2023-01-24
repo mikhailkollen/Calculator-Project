@@ -1,6 +1,8 @@
 @import "config";
 @import "keyboard";
-body {
+
+body,
+body[data-theme="1"] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +13,7 @@ body {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
   box-sizing: border-box;
+
   main {
     display: flex;
     align-items: center;
@@ -26,8 +29,50 @@ body {
       width: 100%;
       color: $white;
       font-size: 1.1rem;
+      .theme-switch-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        box-sizing: border-box;
+        position: relative;
+        #theme-tag {
+          margin-right: 10px;
+        }
+      }
+      .range-input-values {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 4px 0 4px;
+        p {
+          display: inline-block;
+        }
+      }
+      input[type="range"] {
+        padding: 0;
+        width: 66px;
+        appearance: none;
+        background-color: $dark-blue-toggle-key-bg;
+        border-radius: 10px;
+        cursor: pointer;
+        &::-webkit-slider-runnable-track {
+          background-color: $dark-blue-toggle-key-bg;
+          border-radius: 10px;
+        }
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: $red-background-toggle;
+        }
+      }
     }
-    input {
+    input[type="number"] {
       background-color: $dark-blue-screen-bg;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -58,7 +103,7 @@ body {
         border: none;
         border-radius: 4px;
         padding: 10px 5px 10px 5px;
-        
+
         &.key-delete,
         &.key-reset {
           background-color: $desaturated-dark-blue;
@@ -70,6 +115,103 @@ body {
           box-shadow: 0px 2px $dark-red-shadow;
           color: $white;
         }
+      }
+    }
+  }
+}
+
+// ----------COLOR THEMES-----------
+
+body[data-theme="2"] {
+  background-color: $light-gray-main-background;
+
+  header {
+    color: $very-dark-grayish-yellow;
+
+    input[type="range"] {
+      background-color: $grayish-red-toggle-background;
+
+      &::-webkit-slider-runnable-track {
+        background-color: $grayish-red-toggle-background;
+      }
+
+      &::-webkit-slider-thumb {
+        background: $orange-key-background;
+      }
+    }
+  }
+
+  input[type="number"] {
+    background-color: $very-light-gray-screen-background;
+    color: $very-dark-grayish-yellow;
+  }
+
+  .keyboard-grid {
+    background-color: $grayish-red-toggle-background;
+
+    button {
+      color: $very-dark-grayish-yellow;
+      background-color: $light-grayish-yellow-background;
+      box-shadow: 0px 2px $dark-grayish-orange-shadow;
+
+      &.key-delete,
+      &.key-reset {
+        background-color: $dark-moderate-cyan-key-background;
+        box-shadow: 0px 2px $very-dark-cyan-shadow;
+        color: $white;
+      }
+
+      &.key-equal {
+        background-color: $orange-key-background;
+        box-shadow: 0px 2px $dark-orange-shadow;
+        color: $white;
+      }
+    }
+  }
+}
+
+body[data-theme="3"] {
+  background-color: $very-dark-violet-main-background;
+
+  header {
+    color: $light-yellow;
+
+    input[type="range"] {
+      background-color: $very-dark-violet-toggle-background;
+
+      &::-webkit-slider-runnable-track {
+        background-color: $very-dark-violet-toggle-backgroundd;
+      }
+
+      &::-webkit-slider-thumb {
+        background: $pure-cyan-key-background;
+      }
+    }
+  }
+
+  input[type="number"] {
+    background-color: $very-light-gray-screen-background;
+    color: $light-yellow;
+  }
+
+  .keyboard-grid {
+    background-color: $very-dark-violet-toggle-background;
+    button {
+      color: $light-yellow;
+      background-color: $very-dark-violet-background;
+      box-shadow: 0px 2px $dark-magenta-shadow;
+
+      &.key-delete,
+      &.key-reset {
+        color: $white;
+        background-color: $dark-violet-key-background;
+        box-shadow: 0px 2px $vivid-magenta-shadow;
+      }
+
+      &.key-equal {
+        background-color: $pure-cyan-key-background;
+        box-shadow: 0px 2px $soft-cyan-shadow;
+        color: $white;
       }
     }
   }

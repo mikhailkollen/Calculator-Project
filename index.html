@@ -18,19 +18,29 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body data-theme="1">
 
   <main>
     <header>
       <div>
         <h3>calc</h3>
       </div>
-      <div>
-        theme switch
+      <div class="theme-switch-wrapper">
+        <p id="theme-tag">THEME</p>
+        <div class="theme-switch">
+          <span class="range-input-values">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+          </span>
+          <input type="range" name="theme" onchange="" min="1" step="1" id="theme-range-switch" class="tgl-def" max="3"
+            value="2">
+        </div>
       </div>
+      
     </header>
     
-    <input type="number">
+    <input type="number" id="number">
 
     <section class="keyboard-grid">
       <button class="keypad key-num" value="7">7</button>

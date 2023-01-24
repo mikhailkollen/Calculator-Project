@@ -9,9 +9,13 @@ const numBtns = document.querySelectorAll(".key-num");
 const operationKeys = document.querySelectorAll(".operation-key");
 const keyReset = document.querySelector(".key-reset");
 const keyEqual = document.querySelector(".key-equal");
-const input = document.querySelector("input");
+const input = document.querySelector("#number");
+const themeSwitch = document.querySelector("#theme-range-switch");
+const body = document.querySelector("body");
 
 input.value = 0;
+
+// -----CHANGING COLOR THEMES
 
 const calculator = {
   val1: "",
@@ -114,6 +118,9 @@ keyEqual.addEventListener("click", () => {
   }
 });
 
+themeSwitch.addEventListener("change", () => {
+  body.setAttribute("data-theme", themeSwitch.value);
+});
 // const calc = (func, num) => {
 //   return func ? func(num) : num;
 // };

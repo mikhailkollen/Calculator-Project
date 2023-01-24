@@ -28,12 +28,46 @@ $dark-red-shadow: hsl(6, 70%, 34%);
 
 // THEME 2
 
+// backgrounds
+$light-gray-main-background: hsl(0, 0%, 90%); 
+$grayish-red-toggle-background: hsl(0, 5%, 81%);
+$very-light-gray-screen-background: hsl(0, 0%, 93%);
 
+// keys
 $dark-moderate-cyan-key-background: hsl(185, 42%, 37%);
-// - Very dark cyan (key shadow): hsl(185, 58%, 25%)
+$very-dark-cyan-shadow: hsl(185, 58%, 25%);
 
-// - Orange (key background, toggle): hsl(25, 98%, 40%)
-// - Dark orange (key shadow): hsl(25, 99%, 27%)
+$orange-key-background: hsl(25, 98%, 40%);
+$dark-orange-shadow: hsl(25, 99%, 27%);
 
-// - Light grayish yellow (key background): hsl(45, 7%, 89%)
-// - Dark grayish orange (key shadow): hsl(35, 11%, 61%)
+$light-grayish-yellow-background: hsl(45, 7%, 89%);
+$dark-grayish-orange-shadow: hsl(35, 11%, 61%);
+
+// text
+
+$very-dark-grayish-yellow: hsl(60, 10%, 19%);
+
+
+// THEME 3
+
+// Backgrounds
+
+$very-dark-violet-main-background: hsl(268, 75%, 9%);
+$very-dark-violet-toggle-background: hsl(268, 71%, 12%);
+
+// Keys
+
+$dark-violet-key-background: hsl(281, 89%, 26%);
+$vivid-magenta-shadow: hsl(285, 91%, 52%);
+
+$pure-cyan-key-background: hsl(176, 100%, 44%);
+$soft-cyan-shadow: hsl(177, 92%, 70%);
+
+$very-dark-violet-background: hsl(268, 47%, 21%);
+$dark-magenta-shadow: hsl(290, 70%, 36%);
+
+// Text
+
+$light-yellow: hsl(52, 100%, 62%);
+$very-dark-blue: hsl(198, 20%, 13%);
+

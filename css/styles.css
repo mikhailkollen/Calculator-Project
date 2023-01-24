@@ -37,11 +37,12 @@ body main header {
 }
 body main input {
   background-color: hsl(224deg, 36%, 15%);
+  box-sizing: border-box;
   width: 100%;
   text-align: end;
   color: hsl(0deg, 0%, 100%);
   font-size: 1.4rem;
-  padding: 15px 0 15px 0;
+  padding: 15px 15px 15px 15px;
   border-radius: 6px;
   margin: 15px 0 15px 0;
 }

@@ -15,7 +15,10 @@ const body = document.querySelector("body");
 
 input.value = 0;
 
-// -----CHANGING COLOR THEMES
+if (localStorage.getItem("selectedTheme")) {
+  themeSwitch.value = localStorage.getItem("selectedTheme");
+  body.setAttribute("data-theme", localStorage.getItem("selectedTheme"));
+}
 
 const calculator = {
   val1: "",
@@ -73,8 +76,13 @@ numBtns.forEach((numKey) =>
 
 operationKeys.forEach((key) =>
   key.addEventListener("click", () => {
-    calculator.switchValues = "val2";
-    calculator.operation = key.value;
+    if (key.value === "substract" && calculator.val1 === "") {
+      calculator.val1 += "-";
+      input.value = calculator.val1;
+    } else {
+      calculator.switchValues = "val2";
+      calculator.operation = key.value;
+    }
   })
 );
 
@@ -120,6 +128,8 @@ keyEqual.addEventListener("click", () => {
 
 themeSwitch.addEventListener("change", () => {
   body.setAttribute("data-theme", themeSwitch.value);
+  localStorage.setItem("selectedTheme", themeSwitch.value);
+  console.log(localStorage.getItem("selectedTheme"));
 });
 // const calc = (func, num) => {
 //   return func ? func(num) : num;

@@ -28,6 +28,8 @@ body[data-theme="1"] main {
   flex-direction: column;
   width: 50%;
   height: 50%;
+  max-width: 350px;
+  transition: all 0.3s linear;
 }
 body main header,
 body[data-theme="1"] main header {

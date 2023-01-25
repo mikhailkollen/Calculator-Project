@@ -219,24 +219,43 @@ body[data-theme="3"] {
 }
 
 @media (max-width: 500px) {
+  body,
+  body[data-theme="1"] {
+    position: relative;
+  }
   body main,
   body[data-theme="1"] main {
-    width: 90%;
+    position: absolute;
+    top: 50px;
+    width: 80%;
     max-width: 450px;
   }
-  body main header {
+  body main header,
+  body[data-theme="1"] main header {
     font-size: 1.3rem;
   }
 
-  body main header .theme-switch-wrapper {
+  body main header .theme-switch-wrapper,
+  body[data-theme="1"] main header .theme-switch-wrapper {
     font-size: 1rem;
   }
 
-  body main input[type="number"] {
+  body main input[type="number"],
+  body[data-theme="1"] main input[type="number"] {
     font-size: 1.8rem;
   }
 
-  body main .keyboard-grid button {
+  body main .keyboard-grid button,
+  body[data-theme="1"] main .keyboard-grid button {
     font-size: 1.4rem;
   }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

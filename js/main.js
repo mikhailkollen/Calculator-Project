@@ -1,9 +1,4 @@
 // QUERY SELECTORS
-
-// const keyAdd = document.querySelector(".key-add");
-// const keySubstract = document.querySelector(".key-substract");
-// const keyDivide = document.querySelector(".key-divide");
-// const keyMultiply = document.querySelector(".key-multiply");
 const keyDelete = document.querySelector(".key-delete");
 const numBtns = document.querySelectorAll(".key-num");
 const operationKeys = document.querySelectorAll(".operation-key");
@@ -27,32 +22,75 @@ const calculator = {
   val2: "",
   switchValues: "val1",
   operation: "",
+  result: "",
   add() {
-    input.value = Number(this.val1) + Number(this.val2);
+    this.result = Number(this.val1) + Number(this.val2);
+    input.value = this.result;
   },
   substract() {
-    input.value = Number(this.val1) - Number(this.val2);
+    this.result = Number(this.val1) - Number(this.val2);
+    input.value = this.result;
   },
   divide() {
-    if (Number(this.val2) > 0 && Number(this.val1) !== 0) {
-      input.value = (Number(this.val1) / Number(this.val2)).toFixed(2);
+    if (Number(this.val2) > 0) {
+      this.result = (Number(this.val1) / Number(this.val2)).toFixed(2);
+      input.value = this.result;
     } else {
       alert("Division by zero does not make sense in ordinary arithmetic");
       this.resetVals();
     }
   },
   multiply() {
-    input.value = (Number(this.val1) * Number(this.val2)).toFixed(2);
+    this.result = (Number(this.val1) * Number(this.val2)).toFixed(2);
+    input.value = this.result;
   },
   resetVals() {
     this.val1 = "";
     this.val2 = "";
     this.switchValues = "val1";
     this.operation = "";
+    for (let i = 0; i < operationKeys.length; i++) {
+      operationKeys[i].style.filter = "brightness(100%)";
+    }
+  },
+  calculateAfterResult() {
+    this.val1 = this.result;
+    this.operation = "";
+    this.val2 = "";
+    for (let i = 0; i < operationKeys.length; i++) {
+      operationKeys[i].style.filter = "brightness(100%)";
+    }
   },
 };
 
+const calculate = () => {
+  switch (calculator.operation) {
+    case "add":
+      calculator.add();
+      calculator.calculateAfterResult();
+      break;
+    case "substract":
+      calculator.substract();
+      calculator.calculateAfterResult();
+      break;
+    case "divide":
+      calculator.divide();
+      calculator.calculateAfterResult();
+      break;
+    case "multiply":
+      calculator.multiply();
+      calculator.calculateAfterResult();
+      break;
+
+    default:
+      console.log("no operation selected");
+  }
+};
+
 const handleValues = (key) => {
+  for (let i = 0; i < operationKeys.length; i++) {
+    operationKeys[i].style.filter = "brightness(100%)";
+  }
   if (calculator.switchValues === "val1") {
     calculator.val1 += key.value;
     input.value = Number(calculator.val1);
@@ -76,17 +114,26 @@ numBtns.forEach((numKey) =>
   numKey.addEventListener("click", () => handleValues(numKey))
 );
 
-operationKeys.forEach((key) =>
+operationKeys.forEach((key) => {
   key.addEventListener("click", () => {
+    for (let i = 0; i < operationKeys.length; i++) {
+      operationKeys[i].style.filter = "brightness(100%)";
+    }
+    key.style.filter = "brightness(120%)";
     if (key.value === "substract" && calculator.val1 === "") {
       calculator.val1 += "-";
       input.value = calculator.val1;
+      key.style.filter = "brightness(120%)";
+    } else if (calculator.val1 !== "" && calculator.val2 !== "") {
+      calculate();
+      calculator.operation = key.value;
+      key.style.filter = "brightness(120%)";
     } else {
       calculator.switchValues = "val2";
       calculator.operation = key.value;
     }
-  })
-);
+  });
+});
 
 keyReset.addEventListener("click", () => {
   input.value = 0;
@@ -104,90 +151,10 @@ keyDelete.addEventListener("click", () => {
 });
 
 keyEqual.addEventListener("click", () => {
-  // console.log(calculator.val1, calculator.val2);
-  switch (calculator.operation) {
-    case "add":
-      calculator.add();
-      calculator.resetVals();
-      break;
-    case "substract":
-      calculator.substract();
-      calculator.resetVals();
-      break;
-    case "divide":
-      calculator.divide();
-      calculator.resetVals();
-      break;
-    case "multiply":
-      calculator.multiply();
-      calculator.resetVals();
-      break;
-
-    default:
-      console.log("no operation selected");
-  }
+  calculate();
 });
 
 themeSwitch.addEventListener("change", () => {
   body.setAttribute("data-theme", themeSwitch.value);
   localStorage.setItem("selectedTheme", themeSwitch.value);
-  console.log(localStorage.getItem("selectedTheme"));
 });
-// const calc = (func, num) => {
-//   return func ? func(num) : num;
-// };
-
-// function zero(operation) {
-//   return calc(operation, 0);
-// }
-// function one(operation) {
-//   return calc(operation, 1);
-// }
-// function two(operation) {
-//   return calc(operation, 2);
-// }
-// function three(operation) {
-//   return calc(operation, 3);
-// }
-// function four(operation) {
-//   return calc(operation, 4);
-// }
-// function five(operation) {
-//   return calc(operation, 5);
-// }
-// function six(operation) {
-//   return calc(operation, 6);
-// }
-// function seven(operation) {
-//   return calc(operation, 7);
-// }
-// function eight(operation) {
-//   return calc(operation, 8);
-// }
-// function nine(operation) {
-//   return calc(operation, 9);
-// }
-
-// function plus(num2) {
-//   return function (num1) {
-//     return num1 + num2;
-//   };
-// }
-
-// function minus(num2) {
-//   return function (num1) {
-//     return num1 - num2;
-//   };
-// }
-
-// function times(num2) {
-//   return function (num1) {
-//     return num1 * num2;
-//   };
-// }
-
-// function dividedBy(num2) {
-//   return function (num1) {
-//     return Math.floor(num1 / num2);
-//   };
-// }

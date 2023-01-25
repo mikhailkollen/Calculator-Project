@@ -26,7 +26,7 @@ body[data-theme="1"] main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   height: 50%;
   max-width: 350px;
   transition: all 0.3s linear;
@@ -126,7 +126,14 @@ body[data-theme="1"] main .keyboard-grid button {
   border: none;
   border-radius: 4px;
   padding: 10px 5px 10px 5px;
+  cursor: pointer;
 }
+
+body main .keyboard-grid button:hover,
+body[data-theme="1"] main .keyboard-grid button:hover {
+  filter: brightness(120%);
+}
+
 body main .keyboard-grid button.key-delete,
 body main .keyboard-grid button.key-reset,
 body[data-theme="1"] main .keyboard-grid button.key-delete,
@@ -221,9 +228,15 @@ body[data-theme="3"] .keyboard-grid button.key-equal {
 }
 
 @media (max-width: 500px) {
+  body,
+  body[data-theme="1"] {
+    position: relative;
+  }
   body main,
   body[data-theme="1"] main {
-    width: 90%;
+    position: absolute;
+    top: 50px;
+    width: 80%;
     max-width: 450px;
   }
   body main header,
@@ -245,4 +258,13 @@ body[data-theme="3"] .keyboard-grid button.key-equal {
   body[data-theme="1"] main .keyboard-grid button {
     font-size: 1.4rem;
   }
+}
+.attribution {
+  font-size: 1rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

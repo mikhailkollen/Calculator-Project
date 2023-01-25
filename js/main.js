@@ -133,6 +133,16 @@ operationKeys.forEach((key) => {
       calculator.operation = key.value;
     }
   });
+  key.addEventListener("mouseover", () => {
+    key.style.filter = "brightness(120%)";
+  });
+  key.addEventListener("mouseout", () => {
+    if (calculator.operation !== key.value) {
+      key.style.filter = "brightness(100%)";
+    } else {
+      console.log(calculator.operation);
+    }
+  });
 });
 
 keyReset.addEventListener("click", () => {

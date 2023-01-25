@@ -129,9 +129,11 @@ body[data-theme="1"] main .keyboard-grid button {
   cursor: pointer;
 }
 
-body main .keyboard-grid button:hover,
-body[data-theme="1"] main .keyboard-grid button:hover {
-  filter: brightness(120%);
+@media (min-width: 600px) {
+  body main .keyboard-grid button:hover,
+  body[data-theme="1"] main .keyboard-grid button:hover {
+    filter: brightness(120%);
+  }
 }
 
 body main .keyboard-grid button.key-delete,

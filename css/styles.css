@@ -219,3 +219,26 @@ body[data-theme="3"] .keyboard-grid button.key-equal {
   box-shadow: 0px 2px hsl(177, 92%, 70%);
   color: hsl(198, 20%, 13%);
 }
+
+@media (max-width: 500px) {
+  body main,
+  body[data-theme="1"] main {
+    width: 90%;
+    max-width: 450px;
+  }
+  body main header {
+    font-size: 1.3rem;
+  }
+
+  body main header .theme-switch-wrapper {
+    font-size: 1rem;
+  }
+
+  body main input[type="number"] {
+    font-size: 1.8rem;
+  }
+
+  body main .keyboard-grid button {
+    font-size: 1.4rem;
+  }
+}

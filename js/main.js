@@ -18,6 +18,8 @@ input.value = 0;
 if (localStorage.getItem("selectedTheme")) {
   themeSwitch.value = localStorage.getItem("selectedTheme");
   body.setAttribute("data-theme", localStorage.getItem("selectedTheme"));
+} else {
+  themeSwitch.value = 1;
 }
 
 const calculator = {

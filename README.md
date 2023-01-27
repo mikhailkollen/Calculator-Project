@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/mikhailkollen/Calculator-Project)
-- Live Site URL: [Add live site URL here](https://mikhailkollen.github.io/Calculator-Project/)
+- [GitHub Repo](https://github.com/mikhailkollen/Calculator-Project)
+- [Live Site URL](https://mikhailkollen.github.io/Calculator-Project/)
 
 ## My process
 

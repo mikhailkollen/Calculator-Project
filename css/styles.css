@@ -101,7 +101,7 @@ body[data-theme="1"] main input[type="number"] {
   width: 100%;
   text-align: end;
   color: hsl(0deg, 0%, 100%);
-  font-size: 1.4rem;
+  font-size: 2rem;
   padding: 15px 15px 15px 15px;
   border-radius: 6px;
   margin: 15px 0 15px 0;
@@ -118,7 +118,7 @@ body[data-theme="1"] main .keyboard-grid {
 body main .keyboard-grid button,
 body[data-theme="1"] main .keyboard-grid button {
   font-family: "League Spartan", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: hsl(221deg, 14%, 31%);
   background-color: hsl(30deg, 25%, 89%);
   box-shadow: 0px 2px hsl(28deg, 16%, 65%);
@@ -129,7 +129,7 @@ body[data-theme="1"] main .keyboard-grid button {
   cursor: pointer;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 100px) {
   body main .keyboard-grid button:hover,
   body[data-theme="1"] main .keyboard-grid button:hover {
     filter: brightness(120%);
@@ -229,7 +229,7 @@ body[data-theme="3"] .keyboard-grid button.key-equal {
   color: hsl(198, 20%, 13%);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   body,
   body[data-theme="1"] {
     position: relative;

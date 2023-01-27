@@ -17,6 +17,13 @@ if (localStorage.getItem("selectedTheme")) {
   themeSwitch.value = 1;
 }
 
+const addBrightness = (element) => {
+  element.style.filter = "brightness(120%)";
+};
+const removeBrightness = (element) => {
+  element.style.filter = "brightness(100%)";
+};
+
 const calculator = {
   val1: "",
   val2: "",
@@ -27,7 +34,7 @@ const calculator = {
     this.result = Number(this.val1) + Number(this.val2);
     input.value = this.result;
   },
-  substract() {
+  subtract() {
     this.result = Number(this.val1) - Number(this.val2);
     input.value = this.result;
   },
@@ -50,15 +57,16 @@ const calculator = {
     this.switchValues = "val1";
     this.operation = "";
     for (let i = 0; i < operationKeys.length; i++) {
-      operationKeys[i].style.filter = "brightness(100%)";
+      removeBrightness(operationKeys[i]);
     }
   },
   calculateAfterResult() {
     this.val1 = this.result;
     this.operation = "";
     this.val2 = "";
+    this.result = "";
     for (let i = 0; i < operationKeys.length; i++) {
-      operationKeys[i].style.filter = "brightness(100%)";
+      removeBrightness(operationKeys[i]);
     }
   },
 };
@@ -69,8 +77,8 @@ const calculate = () => {
       calculator.add();
       calculator.calculateAfterResult();
       break;
-    case "substract":
-      calculator.substract();
+    case "subtract":
+      calculator.subtract();
       calculator.calculateAfterResult();
       break;
     case "divide":
@@ -89,7 +97,9 @@ const calculate = () => {
 
 const handleValues = (key) => {
   for (let i = 0; i < operationKeys.length; i++) {
-    operationKeys[i].style.filter = "brightness(100%)";
+    if (operationKeys[i].value !== calculator.operation) {
+      removeBrightness(operationKeys[i]);
+    }
   }
   if (calculator.switchValues === "val1") {
     calculator.val1 += key.value;
@@ -103,44 +113,40 @@ const handleValues = (key) => {
 input.addEventListener("change", () => {
   if (calculator.switchValues === "val1") {
     calculator.val1 = input.value;
-    console.log(calculator.val1);
   } else {
     calculator.val2 = input.value;
-    console.log(calculator.val2);
   }
 });
 
-numBtns.forEach((numKey) =>
-  numKey.addEventListener("click", () => handleValues(numKey))
-);
+numBtns.forEach((numKey) => {
+  numKey.addEventListener("click", () => handleValues(numKey));
+});
 
 operationKeys.forEach((key) => {
   key.addEventListener("click", () => {
     for (let i = 0; i < operationKeys.length; i++) {
-      operationKeys[i].style.filter = "brightness(100%)";
+      removeBrightness(operationKeys[i]);
     }
-    key.style.filter = "brightness(120%)";
-    if (key.value === "substract" && calculator.val1 === "") {
+    addBrightness(key);
+    if (key.value === "subtract" && calculator.val1 === "") {
       calculator.val1 += "-";
       input.value = calculator.val1;
-      key.style.filter = "brightness(120%)";
+      addBrightness(key);
     } else if (calculator.val1 !== "" && calculator.val2 !== "") {
       calculate();
       calculator.operation = key.value;
-      key.style.filter = "brightness(120%)";
+      addBrightness(key);
     } else {
       calculator.switchValues = "val2";
       calculator.operation = key.value;
     }
   });
   key.addEventListener("mouseover", () => {
-    key.style.filter = "brightness(120%)";
+    addBrightness(key);
   });
   key.addEventListener("mouseout", () => {
     if (calculator.operation !== key.value) {
-      key.style.filter = "brightness(100%)";
-    } else {
-      console.log(calculator.operation);
+      removeBrightness(key);
     }
   });
 });
@@ -154,6 +160,12 @@ keyDelete.addEventListener("click", () => {
   if (calculator.switchValues === "val1") {
     calculator.val1 = calculator.val1.substring(0, calculator.val1.length - 1);
     input.value = Number(calculator.val1);
+  } else if (input.value === calculator.result) {
+    calculator.result = calculator.result.substring(
+      0,
+      calculator.val2.length - 1
+    );
+    input.value = calculator.result;
   } else {
     calculator.val2 = calculator.val2.substring(0, calculator.val2.length - 1);
     input.value = Number(calculator.val2);

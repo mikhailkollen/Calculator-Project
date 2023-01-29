@@ -17,24 +17,24 @@
   <main>
     <header>
       <div>
-        <h3>calc</h3>
+        <h1>calc</h1>
       </div>
       <div class="theme-switch-wrapper">
-        <p id="theme-tag">THEME</p>
+        <label for="theme-range-switch" id="theme-tag">THEME</label>
         <div class="theme-switch">
-          <span class="range-input-values">
+          <div class="range-input-values">
             <p>1</p>
             <p>2</p>
             <p>3</p>
-          </span>
-          <input type="range" name="theme" onchange="" min="1" step="1" id="theme-range-switch" class="tgl-def" max="3"
+          </div>
+          <input type="range" name="theme" onchange="" min="1" step="1" id="theme-range-switch" max="3"
             value="2">
         </div>
       </div>
       
     </header>
     
-    <input type="number" id="number">
+    <label for="number"><input type="number" id="number"></label>
 
     <section class="keyboard-grid">
       <button class="key-num" value="7">7</button>
@@ -58,12 +58,15 @@
     </section>
   </main>
   
+  <footer class="attribution">
+        Design by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend
+          Mentor</a>.
+        Coded by <a href="https://github.com/mikhailkollen/Calculator-Project" target="_blank"
+          rel="noopener noreferrer">Mikhail Kollen</a>.
+  </footer>
 
 
   <script src="./js/main.js"></script>
-  <div class="attribution">
-    Design by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/mikhailkollen/Calculator-Project" target="_blank" rel="noopener noreferrer">Mikhail Kollen</a>.
-  </div>
+
 </body>
 </html>

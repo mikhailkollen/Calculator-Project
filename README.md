@@ -61,5 +61,5 @@ I would also like to focus on modular approach more, as it surely helps with org
 
 ## Author
 
-- [Github](https://github.com/mikhailkollen)
+- [GitHub](https://github.com/mikhailkollen)
 - Frontend Mentor - [@mikhailkollen](https://www.frontendmentor.io/profile/mikhailkollen)
